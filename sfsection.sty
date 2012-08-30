@@ -1,0 +1,86 @@
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {0.1ex \@plus .2ex}%
+                                    {\normalfont\bfseries}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {0.1ex \@plus .2ex}%
+                                   {\normalfont\bfseries}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+                                    {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {0.1ex \@plus .2ex}%
+                                   {\normalfont\bfseries}}
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {0.1ex \@plus .2ex}%
+                                   {\normalfont\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
+                                      {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {0.1ex \@plus .2ex}%
+                                   {\normalfont\bfseries}}
+
+\renewcommand\tableofcontents{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \chapter*{TABLE OF CONTENTS
+        \@mkboth{%
+           TABLE OF CONTENTS}{TABLE OF CONTENTS}}%
+    \@starttoc{toc}%
+    \if@restonecol\twocolumn\fi
+    }
+
+\renewcommand\listoffigures{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \chapter*{LIST OF FIGURES}%
+      \@mkboth{LIST OF FIGURES}%
+              {LIST OF FIGURES}%
+    \addcontentsline{toc}{chapter}{LIST OF FIGURES}
+    \@starttoc{lof}%
+    \if@restonecol\twocolumn\fi
+    }
+
+\renewcommand\listoftables{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \chapter*{LIST OF TABLES}%
+      \@mkboth{LIST OF TABLES}%
+         {LIST OF TABLES}%
+    \addcontentsline{toc}{chapter}{LIST OF TABLES}
+    \@starttoc{lot}%
+    \if@restonecol\twocolumn\fi
+    }
+\renewcommand*\l@chapter[2]{%
+  \ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \vskip 1.0em \@plus\p@
+    \setlength\@tempdima{2em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \bfseries
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak\ 
+       \leaders\hbox{$\m@th
+        \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+        mu$}\hfil\nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+      \penalty\@highpenalty
+	\vskip 1.0em \@plus\p@
+    \endgroup
+  \fi}
+
+\renewcommand\chaptername{CHAPTER}
+
+
+
+

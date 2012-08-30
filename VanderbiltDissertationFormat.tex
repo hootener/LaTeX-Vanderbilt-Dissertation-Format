@@ -1,0 +1,278 @@
+%This is a comment, it will not be compiled...
+
+\listfiles
+\documentclass[10pt]{report}  %%% Changed from 12pt. Fixed demensions
+                              %%% have not been updated
+%%%%
+%%nomenclature hack from http://www.freiheitsfreund.de/2010/10/24/automatically-run-makeindex-from-within-a-latex-document-with-write18/%%%
+
+\usepackage[intoc]{nomencl}
+
+\textwidth=6in \oddsidemargin=0.5in \topmargin=-0.5in
+\textheight=9in  % 9in must include page numbers
+\textfloatsep = 0.4in \addtocontents{toc}{\vspace{0.4in} \hfill
+Page\endgraf} \addtocontents{lof}{\vspace{0.2in} \hspace{0.13in} \
+Figure\hfill Page\endgraf} \addtocontents{lot}{\vspace{0.2in}
+\hspace{0.13in} \ Table\hfill Page\endgraf}
+
+\usepackage{textcomp}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{setspace}
+\usepackage{mathptmx}
+\usepackage[table, svgnames]{xcolor}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{amssymb, amsmath}
+\usepackage{subfig}
+\usepackage{epsfig}
+\usepackage{times}
+\usepackage{float}
+\usepackage{rotating}
+\usepackage{makeidx}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage[subfigure, titles]{tocloft}
+\usepackage{acronym}
+
+
+%%another algorithm package
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\renewcommand{\nomname}{LIST OF ABBREVIATIONS}
+\makenomenclature
+
+\graphicspath{{images/}}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png,.PNG, .eps, .tiff}
+
+\urlstyle{same}
+
+\usepackage{makecell}
+\usepackage{titletoc}
+\usepackage{sfchap}
+\usepackage{sfsection}
+\usepackage[authoryear]{natbib}
+%\usepackage{apacite}
+\usepackage{appendix}
+%\usepackage{tocbibind}
+%
+\usepackage[nottoc]{tocbibind}
+\setcounter{secnumdepth}{7}
+\setcounter{tocdepth}{7}
+
+\usepackage{hyperref}
+\hypersetup{
+pdftitle={A LaTeX Format for Theses and Dissertations},
+pdfauthor={Eli Hooten},
+bookmarksnumbered, %Determined if chapter numbers are included in the bookmark list
+pdfstartview={FitH},
+pdfborder={0 0 0},
+plainpages=false,
+hyperfootnotes=false,
+bookmarks=false,
+hyperindex=false
+}%
+\usepackage[all]{hypcap}
+
+% Stats table label
+\newcommand{\statslabel}[2]{\multirowcell{#1}[-1.6mm][c]{#2}}
+
+% Below heading rule.
+\newcommand{\otoprule}{\midrule[\heavyrulewidth]}
+
+% Prevent double spaced equations
+\newenvironment{tightequation}{\singlespace\begin{equation}}{\end{equation}}
+
+% Extra junk to pretty up the table of contents
+\setlength{\cftsecnumwidth}{2.8em}
+\setlength{\cftsubsecnumwidth}{3.7em}
+\setlength{\cftsubsubsecnumwidth}{4.6em}
+\setlength{\cftparanumwidth}{5.5em}
+\setlength{\cftsubparanumwidth}{6.5em}
+\setlength{\cfttabnumwidth}{3.5em}
+\setlength{\cftfignumwidth}{3.5em} 
+
+\renewcommand{\contentsname}{TABLE OF CONTENTS}
+\renewcommand{\listfigurename}{LIST OF FIGURES}
+\renewcommand{\listtablename}{LIST OF TABLES}
+\renewcommand{\bibname}{ \texorpdfstring{{BIBLIOGRAPHY\vspace{10mm}}}{BIBLIOGRAPHY}   }
+%
+\renewcommand{\chaptermark}[1]{%
+  \markboth{\MakeUppercase{%
+      \chaptername}\ \thechapter.%
+    \ #1}{}}
+    
+    
+\interfootnotelinepenalty=10000 %prevents the splitting of long footnotes across multiple pages. Use with caution. 
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}\enlargethispage{\the\footskip}%
+\begin{center}
+  {\setstretch{1.66} \MakeUppercase{A LaTeX Format for Theses and Dissertations}\par }%
+  \vskip.5in
+  By
+  \vskip .4in
+  {Eli R. Hooten}
+  \vskip .4in
+
+  \begin{doublespace}
+  Thesis (or Dissertation)\\
+  Submitted to the Faculty of the \\
+  Graduate School of Some University \\
+  in partial fulfillment of the requirements \\
+  for the degree of \\ [.2in]
+  \end{doublespace}
+
+  SOME DEGREE \\[.1in]
+  in \\[.2in]
+  SOME MAJOR \\[.25in]
+  December, 2010\\[.45in]
+  City, State
+\vskip .5in
+\end{center}
+%%%Uncomment for Signatures%%%
+Approved: \hskip 2.5in
+Date:\\\\
+\rule{3.5in}{.5pt}
+\hskip 0.1in
+\rule{2in}{.5pt} \\[.1in]
+\rule{3.5in}{.5pt}
+\hskip 0.1in
+\rule{2in}{.5pt} \\[.1in]
+%%%%%%%%%%%%%%
+%%%%%%Uncomment  for Approved Names%%%%%%
+%\begin{center}
+%\begin{doublespace}
+%Approved:\\
+%Professor John D. Doe \\
+%Professor Jane D. Doe
+%\end{doublespace}
+%\end{center}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\doublespacing
+\pagenumbering{roman} \setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{ACKNOWLEDGMENTS}
+\addcontentsline{toc}{chapter}{ACKNOWLEDGMENTS}
+\vspace{7mm}
+
+This is where you thank the people that made your work possible: grant awarding agencies, advisors, your committee, mom and dad, whatever.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\singlespacing
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begingroup
+\setlength{\parskip}{1\baselineskip}
+\listoftables
+\newpage
+\listoffigures
+\newpage
+\printnomenclature
+\newpage
+\endgroup
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\normalsize
+\doublespacing
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\chapter{Introduction}
+	This document is intended to provide a template for writing a master's thesis or dissertation. In particular, this document correctly adheres to all of Vanderbilt University's formatting standards for the Electrical Engineering and Computer Science Department as of December 2010. If you are using this template to submit a thesis to a different institution or department, please review your department's submission guidelines as this template may not be applicable.
+	
+	In order to see the LaTeX code used to generate this document, please refer to the VanderbiltDissertationFormat.tex file located in this directory. 
+	
+\section{Figures, Tables, Equations, and Algorithms}
+	In addition to fulfilling the necessary formatting requirements, this document will also show examples of how insert images, tables, algorithms, and references into your LaTeX documentation. Each will be demonstrated in its own subsection to illustrate subsection use.
+
+\subsection{Inserting Figures}
+Figure insertion can vary depending on what you need to insert. The code associated with Figure \ref{fig:texlogo} illustrates how to insert single figures, which is the method you will likely use the most often. 
+
+\begin{figure}
+\centering
+\includegraphics[width=2in]{latex_logo.png}
+\caption{A sample figure.}
+\label{fig:texlogo}
+\end{figure}
+
+More complex figure insertion (e.g. inserting multiple figures that have a single caption) can also be achieved. Figure \ref{fig:testedShapes} illustrates how to insert multiple figures.
+
+\begin{figure}[htp]
+  \begin{center}
+    \subfloat[Square]{\label{fig:label1}\includegraphics[width = 1in]{square}}
+    \subfloat[Hexagon]{\label{fig:hex}\includegraphics[width = 1in]{hexagon}}
+    \subfloat[Triangle]{\label{fig:tri}\includegraphics[width = 1in]{triangle}}\\
+    \subfloat[Star]{\label{fig:star}\includegraphics[width = 1in]{star}}
+    \subfloat[House]{\label{fig:house}\includegraphics[width = 1in]{house}}
+    \subfloat[Square Path]{\label{fig:sqpath}\includegraphics[width = 1in]{squarePath}}\\
+ \end{center}
+  \caption{Multiple figure insertion example}
+  \label{fig:testedShapes}
+\end{figure}
+
+\subsection{Using Tables}
+Tables can be entered directly into your LaTeX document; however, inserting tables directly into your dissertation .tex file can result in unwanted clutter. It is generally cleaner to write the table in its own .tex file and then insert the .tex file into your dissertation .tex file. This is the method used by this template. An example table can be seen in Table \ref{table:test}.
+
+\begin{table}
+\scriptsize
+\renewcommand{\tabcolsep}{0.09cm}
+\centering
+\input{tableTest2.tex}
+\caption{A sample table.}
+\label{table:test}
+\end{table}
+
+\subsection{Equations and Equation Arrays}
+A simple equation can be seen in Equation \ref{eqn:slope}:
+\begin{equation}
+\centering
+m = \frac{y_{2} - y_{1}}{x_{2} - x_{1}}.
+\label{eqn:slope}
+\end{equation}
+
+An equation array can be seen in Equation \ref{eqn:generalBez}: 
+
+\begin{eqnarray}
+\lefteqn{B(t) =  \sum_{i=0}^n \binom{n}{i} (1-t)^{n-i}t^{i}\bold{P}_i }\nonumber \\ 
+& = & (1-t)^{n}\bold{P}_0 + \binom{n}{1}t\bold{P}_1+ \cdots  \nonumber \\
+ &\cdots & + \binom{n}{n-1}(1-t)^{n-1}\bold{P}_{n-1} + t^{n}\bold{P}_n, \phantom{ttt} t \in [0,1]
+\label{eqn:generalBez}
+\end{eqnarray}
+
+\subsection{Algorithms}
+An example of a Bayes' Filter \citep*{Thrun2005} algorithm can be seen in Algorithm \ref{alg:bayes}. Note that there are numerous methods for inserting algorithms. This template just demonstrates one.
+
+\begin{algorithm}{$\mathbf{Bayes Filter}$}[$bel(x_{t-1})$, $u_t$, $z_t$]
+\caption{The Bayes filter algorithm.}
+\label{alg:bayes}
+\begin{algorithmic}[1]
+\FOR{all $x_t$}
+\STATE $\overline{bel}(x_t) = \int p(x_t | u_t, x_{t-1}) bel(x_{t-1})dx_{t-1}$
+\STATE $bel(x_t) = \eta p(z_t | x_t) \overline{bel}(x_t)$
+\ENDFOR
+\RETURN $bel(x_t)$
+\end{algorithmic}
+\end{algorithm}
+
+\chapter{Other Important Dissertation Topics}
+This chapter will discuss briefly other topics important to dissertation completion. Specifically, how to handle lists of figures and tables, as well as how to generate acronyms/abbreviations. Inserting references will also be discussed.
+
+\section{ Lists of Figures, Tables, and Acronyms}
+Lists of figures and tables should be built automatically from the figures and tables you insert in this document. The list of acronyms is also generated automatically, but acronyms must be defined before they can be added to a list of acronyms. See the \nomenclature{VDF}{Vanderbilt Dissertation Format} VanderbiltDissertationFormat.tex (VDF) file for an example of how to insert an acronym appropriately. Note that there are numerous ways within LaTeX to manage lists of acronyms. This template utilizes the nomencl package.
+
+\section{Using References}
+There are numerous methods to insert references into your document. Please refer to the VanderbiltDissertationFormat.tex file to see how references were added to this document and how the Bibliography was generated.
+
+\singlespacing
+\bibliographystyle{apalike}
+\bibliography{MyLibrary}
+\end{document}
