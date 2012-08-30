@@ -13,7 +13,7 @@ The template is relatively robust, handling the automatic generation of the tabl
 Contributing
 ============
 
-Also included is a minimal working example of the template which illustrates several handy features that someone new to LaTeX can use for their dissertation. Among these are inserting algorithms, figures, subfigures, tables, and references. Users are encourages to add helpful tips, tricks, and techniques to the minimum working example and submit a pull request. If I feel that the added technique is especially useful to LaTeX beginners, I will merge it into the master branch.
+Also included is a minimal working example of the template which illustrates several handy features that someone new to LaTeX can use for their dissertation. Among these are inserting algorithms, figures, subfigures, tables, and references. Users are encouraged to add helpful tips, tricks, and techniques to the minimum working example and submit a pull request. If I feel that the added technique is especially useful to LaTeX beginners, I will merge it into the master branch.
 
 More than likely I will not merge in any change that impacts the overall format of the template. First and foremost, this template will adhere to Vanderbilt University's guidelines for theses and dissertations. However, feel free to fork this and modify it to meet the guidelines of your own university or academic department. At the very least it should serve as a fairly robust starting point. 
 
