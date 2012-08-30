@@ -35,6 +35,7 @@ Figure\hfill Page\endgraf} \addtocontents{lot}{\vspace{0.2in}
 \usepackage{booktabs}
 \usepackage[subfigure, titles]{tocloft}
 \usepackage{acronym}
+\usepackage{datetime}
 
 
 %%another algorithm package
@@ -64,15 +65,12 @@ Figure\hfill Page\endgraf} \addtocontents{lot}{\vspace{0.2in}
 
 \usepackage{hyperref}
 \hypersetup{
-pdftitle={A LaTeX Format for Theses and Dissertations},
-pdfauthor={Eli Hooten},
-bookmarksnumbered, %Determined if chapter numbers are included in the bookmark list
-pdfstartview={FitH},
-pdfborder={0 0 0},
-plainpages=false,
-hyperfootnotes=false,
-bookmarks=false,
-hyperindex=false
+	pdftitle={A LaTeX Format for Theses and Dissertations},
+	pdfauthor={Eli Hooten},
+	bookmarksnumbered, %Determined if chapter numbers are included in the bookmark list
+	pdfstartview={FitH},
+	pdfborder={0 0 0},
+	plainpages=false
 }%
 \usepackage[all]{hypcap}
 
@@ -110,39 +108,39 @@ hyperindex=false
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Prevent the warning: pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+%%	This setting will make a difference to the output because the page number is suppressed for the title page
+\pagenumbering{alph}
+
+\begin{titlepage}
 \thispagestyle{empty}\enlargethispage{\the\footskip}%
 \begin{center}
-  {\setstretch{1.66} \MakeUppercase{A LaTeX Format for Theses and Dissertations}\par }%
-  \vskip.5in
-  By
-  \vskip .4in
-  {Eli R. Hooten}
-  \vskip .4in
-
-  \begin{doublespace}
-  Thesis (or Dissertation)\\
-  Submitted to the Faculty of the \\
-  Graduate School of Some University \\
-  in partial fulfillment of the requirements \\
-  for the degree of \\ [.2in]
-  \end{doublespace}
-
-  SOME DEGREE \\[.1in]
-  in \\[.2in]
-  SOME MAJOR \\[.25in]
-  December, 2010\\[.45in]
-  City, State
-\vskip .5in
+	{\setstretch{1.66} \MakeUppercase{A LaTeX Format for Theses and Dissertations}\par }%
+	\vskip.5in
+	By
+	\vskip .4in
+	{Eli R. Hooten}
+	\vskip .4in
+	
+	\begin{doublespace}
+	Thesis (or Dissertation)\\
+		Submitted to the Faculty of the \\
+		Graduate School of Some University \\
+		in partial fulfillment of the requirements \\
+		for the degree of \\ [.2in]
+	\end{doublespace}
+	
+	\MakeUppercase{Some Degree} \\[.1in]
+	in \\[.2in]
+	\MakeUppercase{Some Major} \\[.25in]
+	\monthname,\space\number\year \\[.45in]
+	City, State
+	\vskip .5in
 \end{center}
 %%%Uncomment for Signatures%%%
-Approved: \hskip 2.5in
-Date:\\\\
-\rule{3.5in}{.5pt}
-\hskip 0.1in
-\rule{2in}{.5pt} \\[.1in]
-\rule{3.5in}{.5pt}
-\hskip 0.1in
-\rule{2in}{.5pt} \\[.1in]
+Approved: \hskip 2.5in Date:\\[1.2em]
+\rule{3.5in}{.5pt} \hskip 0.1in \rule{2in}{.5pt} \\[.1in]
+\rule{3.5in}{.5pt} \hskip 0.1in \rule{2in}{.5pt} %\\[.1in]
 %%%%%%%%%%%%%%
 %%%%%%Uncomment  for Approved Names%%%%%%
 %\begin{center}
@@ -152,7 +150,7 @@ Date:\\\\
 %Professor Jane D. Doe
 %\end{doublespace}
 %\end{center}
-
+\end{titlepage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \doublespacing
@@ -163,7 +161,7 @@ Date:\\\\
 \addcontentsline{toc}{chapter}{ACKNOWLEDGMENTS}
 \vspace{7mm}
 
-This is where you thank the people that made your work possible: grant awarding agencies, advisors, your committee, mom and dad, whatever.
+This is where you thank the people that made your work possible: grant awarding agencies, advisers, your committee, mom and dad, whatever.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -242,9 +240,9 @@ m = \frac{y_{2} - y_{1}}{x_{2} - x_{1}}.
 An equation array can be seen in Equation \ref{eqn:generalBez}: 
 
 \begin{eqnarray}
-\lefteqn{B(t) =  \sum_{i=0}^n \binom{n}{i} (1-t)^{n-i}t^{i}\bold{P}_i }\nonumber \\ 
-& = & (1-t)^{n}\bold{P}_0 + \binom{n}{1}t\bold{P}_1+ \cdots  \nonumber \\
- &\cdots & + \binom{n}{n-1}(1-t)^{n-1}\bold{P}_{n-1} + t^{n}\bold{P}_n, \phantom{ttt} t \in [0,1]
+\lefteqn{B(t) =  \sum_{i=0}^n \binom{n}{i} (1-t)^{n-i}t^{i}\mathbf{P}_i }\nonumber \\ 
+& = & (1-t)^{n}\mathbf{P}_0 + \binom{n}{1}t\mathbf{P}_1+ \cdots  \nonumber \\
+ &\cdots & + \binom{n}{n-1}(1-t)^{n-1}\mathbf{P}_{n-1} + t^{n}\mathbf{P}_n, \phantom{ttt} t \in [0,1]
 \label{eqn:generalBez}
 \end{eqnarray}
 
