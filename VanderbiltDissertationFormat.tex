@@ -35,6 +35,7 @@ Figure\hfill Page\endgraf} \addtocontents{lot}{\vspace{0.2in}
 \usepackage{booktabs}
 \usepackage[subfigure, titles]{tocloft}
 \usepackage{acronym}
+\usepackage{datetime}
 
 
 %%another algorithm package
@@ -64,12 +65,12 @@ Figure\hfill Page\endgraf} \addtocontents{lot}{\vspace{0.2in}
 
 \usepackage{hyperref}
 \hypersetup{
-pdftitle={A LaTeX Format for Theses and Dissertations},
-pdfauthor={Eli Hooten},
-bookmarksnumbered, %Determined if chapter numbers are included in the bookmark list
-pdfstartview={FitH},
-pdfborder={0 0 0},
-plainpages=false
+	pdftitle={A LaTeX Format for Theses and Dissertations},
+	pdfauthor={Eli Hooten},
+	bookmarksnumbered, %Determined if chapter numbers are included in the bookmark list
+	pdfstartview={FitH},
+	pdfborder={0 0 0},
+	plainpages=false
 }%
 \usepackage[all]{hypcap}
 
@@ -107,29 +108,34 @@ plainpages=false
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Prevent the warning: pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+%%	This setting will make a difference to the output because the page number is suppressed for the title page
+\pagenumbering{alph}
+
+\begin{titlepage}
 \thispagestyle{empty}\enlargethispage{\the\footskip}%
 \begin{center}
-  {\setstretch{1.66} \MakeUppercase{A LaTeX Format for Theses and Dissertations}\par }%
-  \vskip.5in
-  By
-  \vskip .4in
-  {Eli R. Hooten}
-  \vskip .4in
-
-  \begin{doublespace}
-  Thesis (or Dissertation)\\
-  Submitted to the Faculty of the \\
-  Graduate School of Some University \\
-  in partial fulfillment of the requirements \\
-  for the degree of \\ [.2in]
-  \end{doublespace}
-
-  SOME DEGREE \\[.1in]
-  in \\[.2in]
-  SOME MAJOR \\[.25in]
-  December, 2010\\[.45in]
-  City, State
-\vskip .5in
+	{\setstretch{1.66} \MakeUppercase{A LaTeX Format for Theses and Dissertations}\par }%
+	\vskip.5in
+	By
+	\vskip .4in
+	{Eli R. Hooten}
+	\vskip .4in
+	
+	\begin{doublespace}
+	Thesis (or Dissertation)\\
+		Submitted to the Faculty of the \\
+		Graduate School of Some University \\
+		in partial fulfillment of the requirements \\
+		for the degree of \\ [.2in]
+	\end{doublespace}
+	
+	\MakeUppercase{Some Degree} \\[.1in]
+	in \\[.2in]
+	\MakeUppercase{Some Major} \\[.25in]
+	\monthname,\space\number\year \\[.45in]
+	City, State
+	\vskip .5in
 \end{center}
 %%%Uncomment for Signatures%%%
 Approved: \hskip 2.5in Date:\\[1.2em]
@@ -144,7 +150,7 @@ Approved: \hskip 2.5in Date:\\[1.2em]
 %Professor Jane D. Doe
 %\end{doublespace}
 %\end{center}
-
+\end{titlepage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \doublespacing
@@ -155,7 +161,7 @@ Approved: \hskip 2.5in Date:\\[1.2em]
 \addcontentsline{toc}{chapter}{ACKNOWLEDGMENTS}
 \vspace{7mm}
 
-This is where you thank the people that made your work possible: grant awarding agencies, advisors, your committee, mom and dad, whatever.
+This is where you thank the people that made your work possible: grant awarding agencies, advisers, your committee, mom and dad, whatever.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
